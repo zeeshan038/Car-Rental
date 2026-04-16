@@ -143,7 +143,17 @@ export const Hero = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                <input name="phone" required className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-[14px] font-semibold text-[#111827] placeholder:text-slate-400 outline-none transition focus:border-emerald-400 focus:bg-white" placeholder={t.phone} dir="ltr" />
+                <input 
+                  name="phone" 
+                  required 
+                  type="tel"
+                  onInput={(e) => {
+                    e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
+                  }}
+                  className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-[14px] font-semibold text-[#111827] placeholder:text-slate-400 outline-none transition focus:border-emerald-400 focus:bg-white" 
+                  placeholder={t.phone} 
+                  dir="ltr" 
+                />
                 <input name="email" required type="email" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-[14px] font-semibold text-[#111827] placeholder:text-slate-400 outline-none transition focus:border-emerald-400 focus:bg-white" placeholder={t.email} dir="ltr" />
               </div>
 
