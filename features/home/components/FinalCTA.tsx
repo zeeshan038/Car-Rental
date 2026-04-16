@@ -10,11 +10,11 @@ export const FinalCTA = () => {
   const t = translations[language].cta;
 
   return (
-    <section className="bg-white py-12 md:py-20" id="cta-card">
+    <section className="bg-white py-4 md:py-10" id="cta-card">
       <div className="mx-auto max-w-7xl px-8 lg:px-14">
         
         {/* Large Centered CTA Card - Matching screenshot exactly */}
-        <div className="rounded-[3rem] bg-[#121D33] p-10 md:p-20 text-white shadow-2xl relative overflow-hidden">
+        <div className="rounded-[3rem] bg-[#121D33] p-10 md:p-10 text-white shadow-2xl relative overflow-hidden">
           <div className={`max-w-3xl ${dir === "rtl" ? "text-right" : "text-left"}`}>
             <div className={`mb-6 text-[12px] font-black uppercase tracking-[0.2em] text-slate-400 ${dir === "rtl" ? "text-right" : "text-left"}`}>
               {t.badge}
