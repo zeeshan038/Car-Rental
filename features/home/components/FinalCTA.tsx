@@ -11,12 +11,12 @@ export const FinalCTA = () => {
 
   return (
     <section className="bg-white py-4 md:py-10" id="cta-card">
-      <div className="mx-auto max-w-7xl px-8 lg:px-14">
+      <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-14">
         
-        {/* Large Centered CTA Card - Matching screenshot exactly */}
-        <div className="rounded-[3rem] bg-[#121D33] p-10 md:p-10 text-white shadow-2xl relative overflow-hidden">
-          <div className={`max-w-3xl ${dir === "rtl" ? "text-right" : "text-left"}`}>
-            <div className={`mb-6 text-[12px] font-black uppercase tracking-[0.2em] text-slate-400 ${dir === "rtl" ? "text-right" : "text-left"}`}>
+        {/* Large Centered CTA Card - Flexbox approach */}
+        <div className={`rounded-[3rem] bg-[#121D33] p-10 md:p-14 text-white shadow-2xl overflow-hidden flex flex-col lg:flex-row gap-10 justify-between ${dir === "rtl" ? "lg:flex-row-reverse" : ""}`}>
+          <div className={`max-w-2xl ${dir === "rtl" ? "text-right" : "text-left"}`}>
+            <div className="mb-6 text-[12px] font-black uppercase tracking-[0.2em] text-slate-400">
               {t.badge}
             </div>
             
@@ -29,8 +29,8 @@ export const FinalCTA = () => {
             </p>
           </div>
 
-          {/* Buttons Positioned on the Right (on desktop) */}
-          <div className={`flex flex-col gap-4 md:absolute md:right-20 md:top-1/2 md:-translate-y-1/2 md:w-[260px] ${dir === "rtl" ? "md:left-20 md:right-auto" : ""}`}>
+          {/* Buttons */}
+          <div className="flex flex-col gap-4 w-full lg:w-[260px] shrink-0 justify-center">
             <a 
               href="#contact" 
               className="flex items-center justify-center rounded-2xl bg-white px-8 py-5 text-[15.5px] font-[900] text-[#121D33] transition hover:bg-slate-100 shadow-xl active:scale-[0.98]"
@@ -38,7 +38,7 @@ export const FinalCTA = () => {
               {t.submit}
             </a>
             <a 
-              href="https://wa.me/1000000000" 
+              href="https://wa.me/17864477656?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%A8%D7%9B%D7%91%20%D7%A9%D7%9C%20DriveFlex%20USA" 
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 rounded-2xl border border-white/20 px-8 py-5 text-[15.5px] font-[900] text-white transition hover:bg-white/5 active:scale-[0.98]"

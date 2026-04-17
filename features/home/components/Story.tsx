@@ -10,13 +10,13 @@ export const Story = () => {
 
   return (
     <section className="bg-white py-24 md:py-32 overflow-hidden" id="why">
-      <div className="mx-auto max-w-7xl px-8 lg:px-14">
+      <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-14">
 
         {/* Extracted Styling from User Div */}
-        <div className={`grid gap-8 md:grid-cols-[1.1fr_0.9fr] ${dir === "rtl" ? "text-right" : "text-left"}`}>
+        <div className={`grid  gap-8 md:grid-cols-[1.1fr_0.9fr] ${dir === "rtl" ? "text-right" : "text-left"}`}>
 
           {/* Main Story Card (Dark) */}
-          <div className="rounded-[2rem] bg-slate-900 p-5 text-white md:p-10 flex flex-col justify-center">
+          <div className="rounded-[2rem]  bg-slate-900 p-8 md:p-5 text-white md:p-10 flex flex-col justify-center">
             <div className={`mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-slate-300 ${dir === "rtl" ? "text-right" : "text-left"}`}>
               {t.badge}
             </div>

@@ -11,7 +11,7 @@ export const HowItWorks = () => {
 
   return (
     <section className="bg-white py-24 md:py-32" id="how">
-      <div className="mx-auto max-w-7xl px-8 lg:px-14">
+      <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-14">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
           
           {/* Left Card: How It Works */}

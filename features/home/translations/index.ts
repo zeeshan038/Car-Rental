@@ -9,9 +9,9 @@ export const translations = {
     },
     hero: {
       badge: "פתרון חודשי גמיש לישראלים בארה\"ב",
-      title: "איך לנהוג על SUV בארה\"ב מהיום הראשון,",
-      titleHighlight: "בלי התחייבות לליסינג",
-      titleEnd: "של 3 שנים",
+      title: "רכב לישראלים בארה\"ב",
+      titleHighlight: "",
+      titleEnd: "",
       subtitle: "גם אם אין לכם Credit Score. אל תינעלו על חוזה נוקשה שיעלה לכם בקנסות. חיוב חודשי, ביטוחים כלולים, ואפשרות להחזיר מתי שצריך.",
       features: [
         'בלי חוזה ליסינג או קנסות',
@@ -128,8 +128,8 @@ export const translations = {
     },
     hero: {
       badge: "Flexible Monthly Car Solutions in the US",
-      title: "Drive an SUV or Pickup in the US from Day One,",
-      titleHighlight: "Without a 3-Year Lease",
+      title: "Cars for Israelis in the USA",
+      titleHighlight: "",
       titleEnd: "",
       subtitle: "Even if you have no US Credit Score, are under 25, or only have a Debit card. Avoid rigid contracts and exit penalties. Monthly billing, included insurance, and the freedom to return the car when needed.",
       features: [

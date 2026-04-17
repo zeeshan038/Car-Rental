@@ -18,11 +18,11 @@ export const Navbar = () => {
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#121D33] text-[20px] font-black text-white shadow-lg shadow-slate-900/10">
             R
           </div>
-          <div className="hidden sm:block">
-            <div className="text-[16px] font-black tracking-tight text-[#121D33]">
-              US Monthly Car Solutions
+          <div className="block">
+            <div className="text-[14px] sm:text-[16px] font-black tracking-tight text-[#121D33]">
+              DriveFlex USA
             </div>
-            <div className="text-[12px] font-medium text-slate-400">
+            <div className="hidden sm:block text-[12px] font-medium text-slate-400">
               Hebrew + English Human Support
             </div>
           </div>
@@ -32,7 +32,7 @@ export const Navbar = () => {
         <nav className={`hidden items-center gap-10 lg:flex ${dir === "rtl" ? "flex-row-reverse" : "flex-row"}`}>
           <a href="#why" className="text-[14px] font-bold text-[#121D33] transition hover:opacity-70">{t.story}</a>
           <a href="#how" className="text-[14px] font-bold text-[#121D33] transition hover:opacity-70">{t.how}</a>
-          <a href="#vehicles" className="text-[14px] font-bold text-[#121D33] transition hover:opacity-70">{t.vehicles}</a>
+          {/* <a href="#vehicles" className="text-[14px] font-bold text-[#121D33] transition hover:opacity-70">{t.vehicles}</a> */}
           <a href="#faq" className="text-[14px] font-bold text-[#121D33] transition hover:opacity-70">{t.faq}</a>
         </nav>
 
@@ -55,7 +55,7 @@ export const Navbar = () => {
             </button>
           </div>
 
-          <a href="#contact" className="rounded-full bg-[#121D33] px-6 py-3 text-[14px] font-black text-white transition hover:bg-[#1a2844] shadow-xl shadow-slate-900/10 active:scale-[0.98]">
+          <a href="#contact" className="hidden md:block rounded-full bg-[#121D33] px-6 py-3 text-[14px] font-black text-white transition hover:bg-[#1a2844] shadow-xl shadow-slate-900/10 active:scale-[0.98]">
             {t.contact}
           </a>
         </div>

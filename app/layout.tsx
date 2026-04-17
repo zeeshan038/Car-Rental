@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import { StickyWhatsApp } from "@/features/home/components/StickyWhatsApp";
+import { LanguageProvider } from "@/features/home/context/LanguageContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,28 +11,43 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "US Monthly Car Solutions | פתרון חודשי גמיש לישראלים בארה״ב",
-  description: "איך לנהוג על SUV בארה״ב מהיום הראשון, בלי התחייבות לליסינג של 3 שנים. גם אם אין לכם Credit Score.",
+  title: "DriveFlex USA | רכב לישראלים בארה״ב",
+  description:
+    "איך לנהוג על SUV בארה״ב מהיום הראשון, בלי התחייבות לליסינג של 3 שנים. גם אם אין לכם Credit Score.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="he"
-      dir="rtl"
-      className={`${inter.variable} h-full antialiased`}
-    >
+    <html lang="he" dir="rtl" className={`${inter.variable} h-full antialiased`}>
       <head>
-        {/* Placeholder for Meta Pixel */}
-        {/* Placeholder for Google Analytics / GTM */}
+        {/* Meta Pixel */}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}
+            (window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+
+            fbq('init', '1483129133259807');
+            fbq('track', 'PageView');
+          `}
+        </Script>
       </head>
+
       <body className={`${inter.className} min-h-full flex flex-col`}>
-        {children}
-        <StickyWhatsApp />
+        <LanguageProvider>
+          {children}
+          <StickyWhatsApp />
+        </LanguageProvider>
       </body>
     </html>
   );

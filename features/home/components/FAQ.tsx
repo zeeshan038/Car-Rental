@@ -10,7 +10,7 @@ export const FAQ = () => {
 
   return (
     <section className="bg-slate-50 py-24 md:py-32" id="faq">
-      <div className="mx-auto max-w-7xl px-8 lg:px-14">
+      <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-14">
         
         {/* Header matching whole page style */}
         <div className={`mb-16 md:mb-20 ${dir === "rtl" ? "text-right" : "text-left"}`}>

@@ -10,7 +10,7 @@ export const Comparison = () => {
 
   return (
     <section className="bg-[#f9f9fb] py-20 md:py-24" id="why-not">
-      <div className="mx-auto max-w-7xl px-8 lg:px-14">
+      <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-14">
         
         {/* Header - Matching screenshot exactly */}
         <div className={`mb-16 ${dir === "rtl" ? "text-right" : "text-left"}`}>
