@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "DriveFlex USA | רכב לישראלים בארה״ב",
   description:
-    "איך לנהוג על SUV בארה״ב מהיום הראשון, בלי התחייבות לליסינג של 3 שנים. גם אם אין לכם Credit Score.",
+    "פתרון רכב חודשי לישראלים בארה״ב - בלי Credit Score, בלי התחייבות לליסינג ארוך. פשוט, גמיש ואנושי.",
 };
 
 export default function RootLayout({

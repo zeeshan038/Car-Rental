@@ -41,6 +41,7 @@ export const Hero = () => {
         body: JSON.stringify({
           Name: `${data.firstName} ${data.lastName}`.trim(),
           Phone: data.phone,
+          Email: data.email,
           "Car Type": data.vehicleType,
           Location: data.city
         }),

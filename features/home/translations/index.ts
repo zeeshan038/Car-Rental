@@ -9,7 +9,7 @@ export const translations = {
     },
     hero: {
       badge: "פתרון חודשי גמיש לישראלים בארה\"ב",
-      title: "רכב לישראלים בארה\"ב",
+      title: "רכב לישראלים בארה״ב",
       titleHighlight: "",
       titleEnd: "",
       subtitle: "גם אם אין לכם Credit Score. אל תינעלו על חוזה נוקשה שיעלה לכם בקנסות. חיוב חודשי, ביטוחים כלולים, ואפשרות להחזיר מתי שצריך.",
@@ -114,7 +114,7 @@ export const translations = {
       talk: "Talk to a Real Person"
     },
     footer: {
-      copy: "© 2026 US Monthly Car Solutions",
+      copy: "© 2026 DriveFlex USA",
       features: ["Hebrew + English Support", "Monthly Flexibility", "Insurance Included"]
     }
   },
@@ -127,7 +127,7 @@ export const translations = {
       contact: "Contact Us",
     },
     hero: {
-      badge: "Flexible Monthly Car Solutions in the US",
+      badge: "Flexible Monthly Car Solutions in the USA",
       title: "Cars for Israelis in the USA",
       titleHighlight: "",
       titleEnd: "",
@@ -231,7 +231,7 @@ export const translations = {
       talk: "Speak to a Human"
     },
     footer: {
-      copy: "© 2026 US Monthly Car Solutions",
+      copy: "© 2026 DriveFlex USA",
       features: ["Hebrew + English Support", "Monthly Flexibility", "Insurance Included"]
     }
   }

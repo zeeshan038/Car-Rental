@@ -39,11 +39,16 @@ export const HumanSupport = () => {
             </div>
 
             <div className="flex flex-col gap-4 sm:flex-row pt-4">
-              <a href="tel:+1000000000" className="flex items-center justify-center gap-3 rounded-2xl bg-slate-900 px-8 py-4.5 text-[15px] font-[900] text-white shadow-xl transition hover:bg-slate-800 active:scale-[0.98]">
+              <a href="tel:+17864477656" className="flex items-center justify-center gap-3 rounded-2xl bg-slate-900 px-8 py-4.5 text-[15px] font-[900] text-white shadow-xl transition hover:bg-slate-800 active:scale-[0.98]">
                 <Phone size={18} />
                 {t.callNow}
               </a>
-              <a href="#contact" className="flex items-center justify-center gap-3 rounded-2xl bg-[#00A651] px-8 py-4.5 text-[15px] font-[900] text-white shadow-xl transition hover:bg-[#009247] active:scale-[0.98]">
+              <a 
+                href="https://wa.me/17864477656?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%A8%D7%9B%D7%91%20%D7%A9%D7%9C%20DriveFlex%20USA" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 rounded-2xl bg-[#00A651] px-8 py-4.5 text-[15px] font-[900] text-white shadow-xl transition hover:bg-[#009247] active:scale-[0.98]"
+              >
                 <MessageSquare size={18} />
                 {t.whatsapp}
               </a>
