@@ -1,16 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, ChevronDown, Lock, MessageSquare } from "lucide-react";
+import { Check, ChevronDown, Lock } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations";
 
 const trackLead = (data: any) => {
   if (typeof window !== "undefined") {
-    // Meta Pixel Lead Event
     if ((window as any).fbq) (window as any).fbq('track', 'Lead', { content_name: 'Hero Form' });
-  
     if ((window as any).gtag) (window as any).gtag('event', 'generate_lead', { 'event_category': 'Engagement', 'event_label': 'Hero Form Submit' });
     if ((window as any).dataLayer) (window as any).dataLayer.push({ 'event': 'lead_submission', 'form': 'hero' });
   }
@@ -48,7 +46,6 @@ export const Hero = () => {
       });
 
       if (response.ok) {
-        // Track conversion only on successful submission
         trackLead(data);
         router.push("/thank-you");
       } else {
@@ -66,19 +63,28 @@ export const Hero = () => {
     <section className="relative bg-[#EEF2F7] overflow-hidden">
       <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-2 lg:items-center lg:px-12 min-h-screen pt-20 pb-12 lg:py-0">
 
-        {/* Left: Text Content */}
         <div className={`space-y-6 ${dir === "rtl" ? "text-right" : "text-left"} lg:space-y-8`}>
-
           <div className={`inline-flex mx-auto lg:mx-0 whitespace-nowrap rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-[#64748B] shadow-sm ${dir === "rtl" ? "mr-0 ml-auto" : ""}`}>
             {t.badge}
           </div>
 
-          <h1 className="text-[clamp(32px,8vw,64px)] font-[900] leading-[1.15] tracking-tight text-[#111827]">
-            {t.title}
-            <span className="text-[#16A34A] block md:inline mt-1 md:mt-0">
-              {t.titleHighlight}
-            </span>
-            {t.titleEnd && <span className="text-[#111827] block md:inline mt-1 md:mt-0"> {t.titleEnd}</span>}
+          <h1 className="text-[clamp(18px,4.8vw,38px)] font-[900] leading-[1.15] tracking-tight text-[#111827]">
+            {language === 'he' ? (
+              <div className="flex flex-col gap-1">
+                <span>{t.titleLine1}</span>
+                <span>{t.titleLine2}</span>
+                <span className="text-[#009866] text-[clamp(26px,6.2vw,50px)]">{t.titleLine3}</span>
+                <span className="text-[#009866] text-[clamp(26px,6.2vw,50px)]">{t.titleLine4}</span>
+              </div>
+            ) : (
+              <>
+                {t.title}
+                {t.titleEnd && <span className="block mt-2">{t.titleEnd}</span>}
+                <span className="text-[#009866] block mt-2 text-[clamp(22px,5.4vw,44px)]">
+                  {t.titleHighlight}
+                </span>
+              </>
+            )}
           </h1>
 
           <p className="text-[16px] md:text-[18px] leading-[1.6] md:leading-[1.8] text-[#4B5563] max-w-[500px] mx-auto lg:mx-0 mt-6 md:mt-8">
@@ -88,7 +94,7 @@ export const Hero = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4 max-w-[500px] mx-auto lg:mx-0 text-right">
             {t.features.map((item) => (
               <div key={item} className={`flex items-start gap-3 text-[14px] font-semibold text-[#1E293B] leading-[1.4] ${dir === "rtl" ? "flex-row-reverse text-right" : "text-left"}`}>
-                <div className="flex h-[20px] w-[20px] shrink-0 items-center justify-center rounded-full bg-[#DCFCE7] text-[#16A34A] mt-[2px]">
+                <div className="flex h-[20px] w-[20px] shrink-0 items-center justify-center rounded-full bg-[#DCFCE7] text-[#009866] mt-[2px]">
                   <Check size={12} strokeWidth={3} />
                 </div>
                 <span>{item}</span>

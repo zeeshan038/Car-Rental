@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: "DriveFlex USA | רכב לישראלים בארה״ב",
   description:
     "פתרון רכב חודשי לישראלים בארה״ב - בלי Credit Score, בלי התחייבות לליסינג ארוך. פשוט, גמיש ואנושי.",
+  icons: {
+    icon: "/logo-4.png",
+  },
 };
 
 export default function RootLayout({
@@ -41,6 +44,15 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1483129133259807&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
       </head>
 
       <body className={`${inter.className} min-h-full flex flex-col`}>

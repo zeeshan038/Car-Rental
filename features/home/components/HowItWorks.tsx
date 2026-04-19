@@ -42,11 +42,11 @@ export const HowItWorks = () => {
           <div className="flex flex-col gap-8">
             
             {/* 0% Risk Guarantee - Light Green Card */}
-            <div className="rounded-[2.5rem] bg-emerald-50/50 border border-emerald-400 p-10 md:p-12 flex-1">
-              <h3 className={`text-[24px] font-[900] text-emerald-800 mb-6 ${dir === "rtl" ? "text-right" : "text-left"}`}>
+            <div className="rounded-[2.5rem] bg-[#009866]/5 border border-[#009866]/40 p-10 md:p-12 flex-1">
+              <h3 className={`text-[24px] font-[900] text-[#009866] mb-6 ${dir === "rtl" ? "text-right" : "text-left"}`}>
                 {th.riskTitle}
               </h3>
-              <p className={`text-[15px] md:text-[16px] font-medium leading-[1.7] text-emerald-700/90 ${dir === "rtl" ? "text-right" : "text-left"}`}>
+              <p className={`text-[15px] md:text-[16px] font-medium leading-[1.7] text-[#009866]/90 ${dir === "rtl" ? "text-right" : "text-left"}`}>
                 {th.riskDesc}
               </p>
             </div>

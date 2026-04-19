@@ -10,13 +10,17 @@ export const Navbar = () => {
   const isHE = language === "he";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
-        
+
         {/* Brand Group */}
         <div className={`flex items-center gap-4 ${dir === "rtl" ? "flex-row-reverse text-right" : "text-left"}`}>
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#121D33] text-[20px] font-black text-white shadow-lg shadow-slate-900/10">
-            R
+          <div className="flex items-center justify-center">
+            <img
+              src="/logo-4.png"
+              alt="DriveFlex USA Logo"
+              className="h-14 w-auto object-contain"
+            />
           </div>
           <div className="block">
             <div className="text-[14px] sm:text-[16px] font-black tracking-tight text-[#121D33]">
@@ -38,17 +42,17 @@ export const Navbar = () => {
 
         {/* Action Group */}
         <div className={`flex items-center gap-4 ${dir === "rtl" ? "flex-row-reverse" : ""}`}>
-          
+
           {/* Language Switcher Capsule */}
           <div className="flex items-center gap-1 rounded-full bg-slate-50 p-1 border border-slate-100">
-            <button 
-              onClick={() => setLanguage("he")} 
+            <button
+              onClick={() => setLanguage("he")}
               className={`rounded-full px-4 py-1.5 text-[11px] font-black tracking-wide transition-all ${language === "he" ? "bg-white text-[#121D33] shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
             >
               HE
             </button>
-            <button 
-              onClick={() => setLanguage("en")} 
+            <button
+              onClick={() => setLanguage("en")}
               className={`rounded-full px-4 py-1.5 text-[11px] font-black tracking-wide transition-all ${language === "en" ? "bg-white text-[#121D33] shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
             >
               EN
