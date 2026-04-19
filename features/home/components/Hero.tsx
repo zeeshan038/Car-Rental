@@ -29,20 +29,23 @@ export const Hero = () => {
     setIsSubmitting(true);
     setError(null);
 
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const target = e.currentTarget;
+    const data = {
+      firstName: (target.elements.namedItem("firstName") as HTMLInputElement).value,
+      lastName: (target.elements.namedItem("lastName") as HTMLInputElement).value,
+      phone: (target.elements.namedItem("phone") as HTMLInputElement).value,
+      email: (target.elements.namedItem("email") as HTMLInputElement).value,
+      city: (target.elements.namedItem("city") as HTMLInputElement).value,
+      vehicleType: (target.elements.namedItem("vehicleType") as HTMLSelectElement).value,
+    };
 
     try {
-      const response = await fetch("https://hook.us2.make.com/efhiasgqj4a5n336lp216f4lruat86n4", {
+      const response = await fetch("https://hook.us2.make.com/dflbdlhj7x9snvq38whwbx28c4xmxom1", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          Name: `${data.firstName} ${data.lastName}`.trim(),
-          Phone: data.phone,
-          Email: data.email,
-          "Car Type": data.vehicleType,
-          Location: data.city
-        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
 
       if (response.ok) {

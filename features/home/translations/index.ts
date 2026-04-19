@@ -13,6 +13,9 @@ export const translations = {
       titleLine2: "בארה\"ב מהיום הראשון,",
       titleLine3: "בלי התחייבות לליסינג",
       titleLine4: "של 3 שנים",
+      title: "",
+      titleHighlight: "",
+      titleEnd: "",
       subtitle: "גם אם אין לכם Credit Score. אל תינעלו על חוזה נוקשה שיעלה לכם בקנסות. חיוב חודשי, ביטוחים כלולים, ואפשרות להחזיר מתי שצריך.",
       features: [
         'בלי חוזה ליסינג או קנסות',
@@ -132,6 +135,10 @@ export const translations = {
       title: "How to drive an SUV",
       titleHighlight: "without a 3-year lease commitment.",
       titleEnd: "in the USA from day one,",
+      titleLine1: "",
+      titleLine2: "",
+      titleLine3: "",
+      titleLine4: "",
       subtitle: "Even if you have no US Credit Score, are under 25, or only have a Debit card. Avoid rigid contracts and exit penalties. Monthly billing, included insurance, and the freedom to return the car when needed.",
       features: [
         "Works without Credit Score (Debit accepted!)",
