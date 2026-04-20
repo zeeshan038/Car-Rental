@@ -56,8 +56,7 @@ export default function ThankYouPage() {
         <p className="text-[14px] md:text-[16px] font-medium text-slate-500 leading-relaxed mb-5">
           {t.subtitle}
         </p>
-
-        {/* Strong WhatsApp CTA */}
+        
         <div className="rounded-2xl bg-emerald-50/80 border border-emerald-100 p-4 mb-5">
           <p className="text-[14px] font-semibold text-emerald-800 mb-3">
             {t.fasterResponse}

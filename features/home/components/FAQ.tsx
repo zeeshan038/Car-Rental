@@ -12,7 +12,6 @@ export const FAQ = () => {
     <section className="bg-slate-50 py-24 md:py-32" id="faq">
       <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-14">
         
-        {/* Header matching whole page style */}
         <div className={`mb-16 md:mb-20 ${dir === "rtl" ? "text-right" : "text-left"}`}>
           <div className="mb-3 text-[13px] font-semibold text-slate-500 uppercase tracking-wide">
             {t.badge}
@@ -22,7 +21,6 @@ export const FAQ = () => {
           </h2>
         </div>
 
-        {/* FAQ Grid Cards - Matching screenshot layout exactly */}
         <div className="grid gap-6 md:grid-cols-2">
           {t.items.map(([q, a], idx) => (
             <div 
