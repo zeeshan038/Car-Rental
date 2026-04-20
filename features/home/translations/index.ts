@@ -112,11 +112,11 @@ export const translations = {
       ]
     },
     cta: {
-      badge: "Final CTA",
+      badge: "הצעד הבא",
       title: "אל תתחייבו על רכב בארה\"ב לפני שבדקתם אם יש דרך גמישה יותר",
       subtitle: "לפני שאתם קוברים כסף בקנייה או נכנסים לליסינג ארוך, תבדקו אילו אפשרויות חודשיות פתוחות לכם עכשיו.",
       submit: "קבלו אפשרויות עכשיו",
-      talk: "Talk to a Real Person"
+      talk: "דברו עם בן אדם אמיתי"
     },
     footer: {
       copy: "© 2026 DriveFlex USA",
