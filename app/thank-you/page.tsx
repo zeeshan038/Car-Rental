@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { CheckCircle2, ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/features/home/context/LanguageContext";
@@ -29,9 +29,7 @@ export default function ThankYouPage() {
   const BackArrow = isHE ? ArrowRight : ArrowLeft;
 
   useEffect(() => {
-    // Tracking on success page load
     if (typeof window !== "undefined") {
-      // GA4
       if ((window as any).gtag) {
         (window as any).gtag('event', 'conversion', {
           'send_to': 'G-EEWD8C97S3',
@@ -39,7 +37,6 @@ export default function ThankYouPage() {
           'event_label': 'Lead Success Page'
         });
       }
-      // Meta Pixel
       if ((window as any).fbq) {
         (window as any).fbq('track', 'CompleteRegistration', { content_name: 'Lead Success' });
       }

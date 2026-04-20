@@ -6,7 +6,6 @@ export async function POST(req: Request) {
     const { captchaToken, ...formData } = body;
     console.log("Server received captchaToken:", captchaToken ? `${captchaToken.substring(0, 10)}...` : "EMPTY");
 
-    // Step 1: Verify reCAPTCHA token with Google
     const params = new URLSearchParams();
     params.append('secret', process.env.RECAPTCHA_SECRET_KEY || '');
     params.append('response', captchaToken);
@@ -26,8 +25,7 @@ export async function POST(req: Request) {
 
     if (!success || (score !== undefined && score < 0.5)) {
       console.log("Bot detected or Verification failed. Score:", score, "Success:", success);
-      
-      // FORCE BYPASS IN DEVELOPMENT: This ensures you can test your CRM even if reCAPTCHA fails locally.
+
       if (process.env.NODE_ENV === 'development') {
          console.warn("DEVELOPMENT MODE: Bypassing reCAPTCHA check and proceeding to CRM...");
       } else {
