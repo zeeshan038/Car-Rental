@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { StickyWhatsApp } from "@/features/home/components/StickyWhatsApp";
-import { LanguageProvider } from "@/features/home/context/LanguageContext";
+import { ClientProviders } from "@/features/home/context/ClientProviders";
+import React from "react";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,6 +28,20 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl" className={`${inter.variable} h-full antialiased`}>
       <head>
+        {/* Google Analytics (GA4) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=G-EEWD8C97S3`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EEWD8C97S3');
+          `}
+        </Script>
+
         {/* Meta Pixel */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
@@ -56,10 +71,10 @@ export default function RootLayout({
       </head>
 
       <body className={`${inter.className} min-h-full flex flex-col`}>
-        <LanguageProvider>
+        <ClientProviders>
           {children}
           <StickyWhatsApp />
-        </LanguageProvider>
+        </ClientProviders>
       </body>
     </html>
   );

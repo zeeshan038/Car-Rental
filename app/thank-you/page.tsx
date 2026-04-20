@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { CheckCircle2, ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/features/home/context/LanguageContext";
@@ -24,9 +24,27 @@ const translations = {
 
 export default function ThankYouPage() {
   const { language, dir } = useLanguage();
-  const t = translations[language];
+  const t = translations[language as keyof typeof translations];
   const isHE = language === "he";
   const BackArrow = isHE ? ArrowRight : ArrowLeft;
+
+  useEffect(() => {
+    // Tracking on success page load
+    if (typeof window !== "undefined") {
+      // GA4
+      if ((window as any).gtag) {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'G-EEWD8C97S3',
+          'event_category': 'Contact',
+          'event_label': 'Lead Success Page'
+        });
+      }
+      // Meta Pixel
+      if ((window as any).fbq) {
+        (window as any).fbq('track', 'CompleteRegistration', { content_name: 'Lead Success' });
+      }
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-6 text-center" dir={dir}>
       <div className="max-w-md w-full bg-white rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 shadow-2xl border border-slate-100 animate-in fade-in zoom-in duration-500">

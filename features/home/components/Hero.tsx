@@ -5,6 +5,7 @@ import { Check, ChevronDown, Lock } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const trackLead = (data: any) => {
   if (typeof window !== "undefined") {
@@ -19,6 +20,7 @@ export const Hero = () => {
   const t = translations[language].hero;
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const isHE = language === "he";
 
@@ -26,10 +28,24 @@ export const Hero = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!executeRecaptcha) {
+      setError(isHE ? "המערכת עדיין נטענת, נסו שוב בעוד רגע." : "System still loading, please try again in a moment.");
+      return;
+    }
+
     setIsSubmitting(true);
     setError(null);
 
     const target = e.currentTarget;
+    
+    // Honeypot check
+    const hpValue = (target.elements.namedItem("_hp_name") as HTMLInputElement).value;
+    if (hpValue) {
+      console.warn("Honeypot hit! Bot submission blocked.");
+      return;
+    }
+
     const data = {
       firstName: (target.elements.namedItem("firstName") as HTMLInputElement).value,
       lastName: (target.elements.namedItem("lastName") as HTMLInputElement).value,
@@ -40,23 +56,41 @@ export const Hero = () => {
     };
 
     try {
-      const response = await fetch("https://hook.us2.make.com/dflbdlhj7x9snvq38whwbx28c4xmxom1", {
+      const captchaToken = await executeRecaptcha("hero_form_submit");
+      console.log("Client-side captchaToken generated:", captchaToken);
+
+      if (!captchaToken) {
+        throw new Error("Failed to generate reCAPTCHA token");
+      }
+
+      const response = await fetch("/api/submit-lead", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          captchaToken,
+          Name: `${data.firstName} ${data.lastName}`.trim(),
+          Phone: data.phone,
+          Email: data.email,
+          "Car Type": data.vehicleType,
+          Location: data.city,
+        }),
       });
 
       if (response.ok) {
         trackLead(data);
         router.push("/thank-you");
       } else {
-        throw new Error("Submission failed");
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Submission failed");
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error("Submission Error:", err);
-      setError(isHE ? "שגיאה בשליחה. נסו שוב או פנו אלינו בוואטסאפ." : "Submission failed. Please try again or contact us on WhatsApp.");
+      setError(err.message === "Bot detected" 
+        ? (isHE ? "זוהתה פעילות חשודה (בוט). אנא רעננו את הדף ונסו שוב." : "Suspicious activity detected (Bot). Please refresh and try again.")
+        : (isHE ? "שגיאה בשליחה. נסו שוב או פנו אלינו בוואטסאפ." : "Submission failed. Please try again or contact us on WhatsApp."));
     } finally {
       setIsSubmitting(false);
     }
@@ -80,13 +114,13 @@ export const Hero = () => {
                 <span className="text-[#009866] text-[clamp(26px,6.2vw,50px)]">{t.titleLine4}</span>
               </div>
             ) : (
-              <>
-                {t.title}
-                {t.titleEnd && <span className="block mt-2">{t.titleEnd}</span>}
-                <span className="text-[#009866] block mt-2 text-[clamp(22px,5.4vw,44px)]">
-                  {t.titleHighlight}
-                </span>
-              </>
+              <div className="flex flex-col gap-1">
+                <span>{t.titleLine1}</span>
+                <span>{t.titleLine2}</span>
+                <span>{t.titleLine3}</span>
+                <span className="text-[#009866] text-[clamp(22px,5.4vw,44px)]">{t.titleLine4}</span>
+                <span className="text-[#009866] text-[clamp(22px,5.4vw,44px)]">{t.titleLine5}</span>
+              </div>
             )}
           </h1>
 
@@ -132,6 +166,15 @@ export const Hero = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4" id="contact">
+              {/* Spam Protection: Honeypot field (hidden from users) */}
+              <input 
+                type="text" 
+                name="_hp_name" 
+                style={{ display: "none" }} 
+                tabIndex={-1} 
+                autoComplete="off" 
+              />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <input name="firstName" required className={`rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-[14px] font-semibold text-[#111827] placeholder:text-slate-400 outline-none transition focus:border-emerald-400 focus:bg-white ${dir === "rtl" ? "text-right" : ""}`} placeholder={t.firstName} dir={dir} />
                 <input name="lastName" required className={`rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-[14px] font-semibold text-[#111827] placeholder:text-slate-400 outline-none transition focus:border-emerald-400 focus:bg-white ${dir === "rtl" ? "text-right" : ""}`} placeholder={t.lastName} dir={dir} />
